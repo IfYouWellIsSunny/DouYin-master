@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.liqy.douyin.MainActivity">
+
+    <!--内容区-->
+
+    <FrameLayout
+        android:id="@+id/sub_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:background="@color/colorPrimary" />
+
+    <!--导航区-->
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/bottom_layout"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        tools:showIn="@layout/activity_main">
+
+        <!--android:background="@color/tab_bottom_bg"-->
+        <TextView
+            android:id="@+id/tv_home"
+            style="@style/navigation_bar_tab_style"
+            android:background="@android:color/transparent"
+            android:text="@string/main_tab_home_text"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/iv_refresh"
+            style="@style/navigation_bar_tab_add_style"
+            android:src="@drawable/sh" />
+
+        <TextView
+            android:id="@+id/tv_follow"
+            style="@style/navigation_bar_tab_style"
+            android:text="@string/main_tab_follow_text" />
+
+        <ImageView
+            android:id="@+id/iv_shoot"
+            style="@style/navigation_bar_tab_add_style"
+            android:src="@drawable/main_tab_add" />
+
+        <TextView
+            android:id="@+id/tv_mesage"
+            style="@style/navigation_bar_tab_style"
+            android:text="@string/main_tab_message_text" />
+
+
+        <TextView
+            android:id="@+id/tv_mine"
+            style="@style/navigation_bar_tab_style"
+            android:text="@string/main_tab_mine_text" />
+
+    </LinearLayout>
+
+    <com.liqy.douyin.shoot.TextDragLayout
+        android:id="@+id/td_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottom_layout"
+        app:mode="drag_bottom">
+
+        <!--android:background="@drawable/bg_room_change"-->
+        <RelativeLayout
+            android:id="@+id/layout_drag"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+
+        </RelativeLayout>
+
+    </com.liqy.douyin.shoot.TextDragLayout>
+
+</RelativeLayout>
