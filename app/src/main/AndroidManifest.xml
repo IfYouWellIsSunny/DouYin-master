@@ -53,11 +53,8 @@
         <!-- 友盟 end -->
 
         <activity android:name=".WebActivity" />
-        <activity
-            android:name=".found.FoundActivity"
-            android:label="@string/title_activity_found"
-            android:theme="@style/AppTheme" />
-        <activity android:name=".search.SearchActivity"></activity>
+        <activity android:name=".search.SearchActivity" />
+        <activity android:name=".search.VideoPlayActivity"></activity>
     </application>
 
 </manifest>

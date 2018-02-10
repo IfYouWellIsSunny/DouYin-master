@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.liqy.douyin.common.BaseActivity;
 import com.liqy.douyin.follow.FollowFragment;
@@ -77,7 +78,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     FollowFragment followFragment;
     MessageFragment messageFragment;
     MineFragment mineFragment;
-
+    private long firstTime = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -242,4 +243,25 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         }
         return super.onKeyDown(keyCode, event);
     }
+
+    @Override//返回两次退出程序
+    public boolean onKeyUp(int keyCode, KeyEvent event) {
+        switch (keyCode) {
+            case KeyEvent.KEYCODE_BACK:
+                long secondTime = System.currentTimeMillis();
+                if (secondTime - firstTime > 2000) {
+                    Toast.makeText(this, "再按一次退出", Toast.LENGTH_SHORT).show();
+                    firstTime = secondTime;
+
+                    return true;
+                } else {
+                    System.exit(0);
+                }
+                break;
+        }
+        return super.onKeyUp(keyCode, event);
+    }
+
+
+
 }

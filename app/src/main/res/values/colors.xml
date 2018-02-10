@@ -10,4 +10,6 @@
     <color name="tab_bottom_bg">#0F0F1B</color>
     <color name="tab_bottom_transparent">#00000000</color>
 
+    <color name="color_white">#fff</color>
+
 </resources>
